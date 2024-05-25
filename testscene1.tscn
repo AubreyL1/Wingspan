@@ -9,5 +9,25 @@
 position = Vector2(923, 912)
 scale = Vector2(58.04, 1)
 
+[node name="Node2D2" parent="." instance=ExtResource("1_2uogd")]
+position = Vector2(325, 733)
+scale = Vector2(8.36805, 1.24182)
+
+[node name="Node2D5" parent="." instance=ExtResource("1_2uogd")]
+position = Vector2(-29, 746)
+scale = Vector2(1.37306, 48.6196)
+
+[node name="Node2D6" parent="." instance=ExtResource("1_2uogd")]
+position = Vector2(1823, 746)
+scale = Vector2(1.37306, 48.6196)
+
+[node name="Node2D3" parent="." instance=ExtResource("1_2uogd")]
+position = Vector2(971, 585)
+scale = Vector2(8.36805, 1.24182)
+
+[node name="Node2D4" parent="." instance=ExtResource("1_2uogd")]
+position = Vector2(1548, 465)
+scale = Vector2(8.36805, 1.24182)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_hk4t7")]
-position = Vector2(913, 207)
+position = Vector2(913, 770)
