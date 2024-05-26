@@ -31,3 +31,15 @@ scale = Vector2(8.36805, 1.24182)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_hk4t7")]
 position = Vector2(913, 770)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(3, -4)
+scale = Vector2(8.36805, 1.24182)
+limit_left = -600
+limit_top = -600
+limit_right = 2400
+limit_bottom = 1800
+limit_smoothed = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
