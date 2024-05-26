@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -60
 
 var lastDir = 0
 var speed = 10
 var dashing = false
 var dashTime = 0
+var grounded = false
+var accelerationGravity = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,11 +17,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor()&&!dashing:
-		velocity.y += gravity * delta
+		accelerationGravity += 3
+		velocity.y += gravity * delta + accelerationGravity
 
 	# Handle jump.
-	if Input.is_action_pressed("ui_up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_pressed("ui_up"):
+		velocity.y += JUMP_VELOCITY+(-50+accelerationGravity)
+		grounded = false
+		
+	if is_on_floor():
+		accelerationGravity = 0
+		grounded = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
