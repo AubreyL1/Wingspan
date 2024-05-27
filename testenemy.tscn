@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://co6tk7mbsmura"]
+
+[ext_resource type="Script" path="res://testenemy.gd" id="1_ge4j3"]
+[ext_resource type="Texture2D" uid="uid://b1g0p70vhmlni" path="res://Drone-spawnmenuicon.png" id="2_u3u01"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ueeyl"]
+radius = 5.88569
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ge4j3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.96046e-08, 1.5)
+scale = Vector2(2.54997, 2.54997)
+shape = SubResource("CircleShape2D_ueeyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.20142, 0.20142)
+texture = ExtResource("2_u3u01")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 250.0
+path_postprocessing = 1
+radius = 105.81
+max_neighbors = 50
+max_speed = 100000.0
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

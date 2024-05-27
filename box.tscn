@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://b0iqv6fxvo2n8" path="res://newbox.png" id="1_toxih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sbsc"]
-size = Vector2(43.5, 41)
+size = Vector2(50, 50)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_8sbsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_toxih")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D"]
+vertices = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)

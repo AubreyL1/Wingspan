@@ -27,14 +27,12 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up")&&jumpNum < 2:
 		accelerationGravity = 0
-		velocity.y = 50
+		velocity.y = -100
+		jumpNum += 1
 		
 	if Input.is_action_pressed("ui_up")&&jumpNum < 2:
 		velocity.y += JUMP_VELOCITY+(-50+accelerationGravity)
 		grounded = false
-		
-	if Input.is_action_just_released("ui_up"):
-		jumpNum += 1
 		
 	if is_on_floor():
 		jumpNum = 0
@@ -78,7 +76,7 @@ func _physics_process(delta):
 		
 	dash()
 	dashTime+=1
-	print(dashTime)
+	
 	move_and_slide()
 
 # Handle Dash.
